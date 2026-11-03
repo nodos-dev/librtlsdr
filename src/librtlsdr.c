@@ -2445,7 +2445,7 @@ uint32_t rtlsdr_get_device_count(void)
 {
 	int i,r;
 	libusb_context *ctx;
-	libusb_device **list;
+	libusb_device **list = NULL;
 	uint32_t device_count = 0;
 	struct libusb_device_descriptor dd;
 	ssize_t cnt;
@@ -2481,7 +2481,7 @@ const char *rtlsdr_get_device_name(uint32_t index)
 {
 	int i,r;
 	libusb_context *ctx;
-	libusb_device **list;
+	libusb_device **list = NULL;
 	struct libusb_device_descriptor dd;
 	rtlsdr_dongle_t *device = NULL;
 	uint32_t device_count = 0;
@@ -2529,7 +2529,7 @@ int rtlsdr_get_device_usb_strings(uint32_t index, char *manufact,
 	int r = -2;
 	int i;
 	libusb_context *ctx;
-	libusb_device **list;
+	libusb_device **list = NULL;
 	struct libusb_device_descriptor dd;
 	rtlsdr_dongle_t *device = NULL;
 	rtlsdr_dev_t devt;
@@ -3098,7 +3098,7 @@ int rtlsdr_open(rtlsdr_dev_t **out_dev, uint32_t index)
 {
 	int r;
 	int i;
-	libusb_device **list;
+	libusb_device **list = NULL;
 	rtlsdr_dev_t *dev = NULL;
 	libusb_device *device = NULL;
 	uint32_t device_count = 0;
